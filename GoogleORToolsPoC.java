@@ -14,7 +14,7 @@ import com.google.ortools.constraintsolver.RoutingModel;
 import com.google.ortools.constraintsolver.RoutingSearchParameters;
 import com.google.ortools.constraintsolver.main;
 
-class UnfeasibleProblemException extends RuntimeException {}
+class InfeasibleProblemException extends RuntimeException {}
 
 public class PoC {
 
@@ -126,7 +126,7 @@ public class PoC {
 		manager,
 		totalTime,
 		Optional.ofNullable(routing.solveWithParameters(searchParameters))
-			.orElseThrow(UnfeasibleProblemException::new)));
+			.orElseThrow(InfeasibleProblemException::new)));
 
     }
 
